@@ -7,3 +7,7 @@ resultDF=_df.fillna('others')
 
 print(_df)
 print(resultDF)
+
+pf = pd.get_dummies(resultDF[['Profession']])
+resultDF = pd.concat([resultDF, pf], axis=1)
+print(resultDF)
