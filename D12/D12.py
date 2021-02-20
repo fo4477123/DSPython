@@ -19,3 +19,5 @@ df.plot.scatter(x='NOX', y='DIS')
 
 plt.show()
 
+#指數下降的關係
+
