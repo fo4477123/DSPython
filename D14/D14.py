@@ -1,25 +1,8 @@
-from numpy.lib.function_base import median
 import pandas as pd
 
-score_df = pd.DataFrame([[1,56,66,70], [2,90,45,34], [3,45,32,55], [4,70,77,89], [5,56,80,70], [6,60,54,55], [7,45,70,79], [8,34,77,76], [9,25,87,60], [10,88,40,43]],columns=['student_id','math_score','english_score','chinese_score'])
-score_df = score_df.set_index('student_id')
-print(score_df)
-print(score_df.T[6])
+score_df = pd.DataFrame([[1,50,80,70,'boy',1],[2,60,45,50,'boy',2],[3,98,43,55,'boy',1],[4,70,69,89,'boy',2],[5,56,79,60,'girl',1],[6,60,68,55,'girl',2],[7,45,70,77,'girl',1],[8,55,77,76,'girl',2],[9,25,57,60,'girl',1],[10,88,40,43,'girl',3],[11,25,60,45,'boy',3],[12,80,60,23,'boy',3],[13,20,90,66,'girl',3],[14,50,50,50,'girl',3],[15,89,67,77,'girl',3]],columns=['student_id','math_score','english_score','chinese_score','sex','class'])
 
-print(score_df.T[6].mean())
 
-#是否贏過班上一半的同學
 
-print(score_df.count(axis=0))
-mediain =score_df.median(axis=0)
-if(score_df.T[6].mean() > mediain.mean()):
-    print("YES")
-else:
-    print("NO")
-
-#由於班上同學成績不好，所以學校統一加分，加分方式為開根號乘以十，請問 6 號同學 3 科成績分別是
-score_df.apply(lambda x : x**(0.5)*10)
-print(score_df.T[6])
-
-#承上題，加分後各科班平均變多少
-print(score_df.mean())
+adjustTable = score_df.pivot_table(index=["sex","class","student_id"])
+print(adjustTable)
