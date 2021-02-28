@@ -3,7 +3,7 @@ import numpy as np
 
 
 x = np.arange(0,180)
-y = np.cos(x)
+y = np.cos(x * np.pi / 180.0)
 
 # 開始畫圖
 plt.plot(x,y)
@@ -17,5 +17,8 @@ n = 1024
 X = np.random.normal(0,1,n)
 Y = np.random.normal(0,1,n)
 t = np.arange(0., 10., 0.7)
-plt.scatter(X,Y,c='red')
+plt.scatter(X,Y,c='red',s=75,alpha=.5)
+
+plt.xlim(-1.5,1.5)
+plt.ylim(-1.5,1.5)
 plt.show()
